@@ -21,11 +21,11 @@ window.app = function() {
 	function loadMainPage(lang) {
 		var d = $.Deferred();
 		if(typeof lang === "undefined") {
-			lang = preferencesDB.get("language");
+			lang = lang = "de";
 		}
 
 		app.getWikiMetadata().done(function(wikis) {
-			var mainPage = wikis[lang].mainPage;
+			var mainPage = "Hauptseite";
 			app.navigateTo( mainPage, lang, { isCompletePage: true } ).done( function( data ) {
 				d.resolve(data);
 			}).fail(function(err) {
@@ -49,7 +49,7 @@ window.app = function() {
 		chrome.scrollTo("#content", 0);
 		appHistory.addCurrentPage();
 		chrome.toggleMoveActions();
-		geo.addShowNearbyLinks();
+		/*geo.addShowNearbyLinks();*/
 		$("#page-footer").show();
 		chrome.showContent();
 		chrome.hideSpinner();
@@ -111,22 +111,22 @@ window.app = function() {
 
 	function urlForTitle(title, lang) {
 		if(typeof lang === 'undefined') {
-			lang = preferencesDB.get("language");
+			lang = "de";
 		}
-		return app.baseUrlForLanguage(lang) + "/wiki/" + encodeURIComponent(title.replace(/ /g, '_'));
+		return app.baseUrlForLanguage(lang) + "/" + encodeURIComponent(title.replace(/ /g, '_'));
 	}
 
 	function resourceLoaderURL( lang ) {
 		// Path to the ResourceLoader load.php to be used for loading site-specific css
-		return "http://bits.wikimedia.org/" + lang + ".wikipedia.org/load.php"
+		return "http://www.droidwiki.de/load.php";
 	}
 
 	function baseUrlForLanguage(lang) {
-		return window.PROTOCOL + '://' + lang + '.' + PROJECTNAME + '.org';
+		return window.PROTOCOL + '://' + 'www.' + PROJECTNAME + '.de';
 	}
 
 	function makeCanonicalUrl(lang, title) {
-		return baseUrlForLanguage(lang) + '/wiki/' + encodeURIComponent(title.replace(/ /g, '_'));
+		return baseUrlForLanguage(lang) + '/' + encodeURIComponent(title.replace(/ /g, '_'));
 	}
 
 	function setContentLanguage(language) {
@@ -174,7 +174,7 @@ window.app = function() {
 			pageHistory[currentHistoryIndex] = url;
 		}
 		if(title === "") {
-			title = "Main_Page"; // FIXME
+			title = "Hauptseite"; // FIXME
 		}
 		d = app.loadPage( title, lang, options.isCompletePage );
 		d.done(function(page) {
@@ -205,11 +205,11 @@ window.app = function() {
 	function languageForUrl(url) {
 		// Use the least significant part of the hostname as language
 		// So en.wikipedia.org would be 'en', and so would en.wiktionary.org
-		return url.match(/^https?:\/\/([^.]+)./)[1];	
+		return url.match(/^http?:\/\/([^.]+)./)[1];
 	}
 
 	function titleForUrl(url) {
-		var page = url.replace(/^https?:\/\/[^\/]+(\/wiki\/)?/, ''),
+		var page = url.replace(/^http?:\/\/[^\/]+(\/)?/, ''),
 			unescaped = decodeURIComponent(page),
 			title = unescaped.replace(/_/g, ' ');
 		return title;
@@ -225,8 +225,8 @@ window.app = function() {
 	function makeAPIRequest(params, lang, extraOptions) {
 		params = params || {};
 		params.format = 'json'; // Force JSON
-		lang = lang || preferencesDB.get('language');
-		var url = app.baseUrlForLanguage(lang) + '/w/api.php';
+		lang = 'de';
+		var url = app.baseUrlForLanguage(lang) + '/api.php';
 		var defaultOptions = {
 			url: url,
 			data: params,
