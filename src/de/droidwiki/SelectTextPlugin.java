@@ -1,9 +1,10 @@
-package org.wikipedia;
+package de.droidwiki;
 
 import org.json.JSONArray;
 
 import android.util.Log;
 import android.view.KeyEvent;
+import de.droidwiki.R;
 
 import org.apache.cordova.api.Plugin;
 import org.apache.cordova.api.PluginResult;

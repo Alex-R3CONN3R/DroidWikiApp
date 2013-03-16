@@ -1,4 +1,4 @@
-package org.wikipedia;
+package de.droidwiki;
 
 import java.io.File;
 
@@ -9,6 +9,7 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
+import de.droidwiki.R;
 
 public class WikipediaApp extends Application {
 
@@ -19,8 +20,8 @@ public class WikipediaApp extends Application {
 	// Which changed the path Databases are stored in
 	private void migrateDatabaseFromvc1() {
 		Log.d("PhoneGapLog", "Migration happening");
-		File v1File = new File("/data/data/org.wikipedia/databases/savedPagesDB.db");
-		File v10File = new File("/data/data/org.wikipedia/app_database:savedPagesDB.db");
+		File v1File = new File("/data/data/de.droidwiki/databases/savedPagesDB.db");
+		File v10File = new File("/data/data/de.droidwiki/app_database:savedPagesDB.db");
 		if(!v1File.exists()) {
 			// New install - no v1 files to be removed
 			return;

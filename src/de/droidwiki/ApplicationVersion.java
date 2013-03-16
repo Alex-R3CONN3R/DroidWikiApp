@@ -1,4 +1,4 @@
-package org.wikipedia;
+package de.droidwiki;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -10,6 +10,7 @@ import org.apache.cordova.api.PluginResult;
 import org.apache.cordova.api.PluginResult.Status;
 
 import android.content.pm.PackageManager.NameNotFoundException;
+import de.droidwiki.R;
 
 public class ApplicationVersion extends Plugin {
 	public JSONObject getVersion() {

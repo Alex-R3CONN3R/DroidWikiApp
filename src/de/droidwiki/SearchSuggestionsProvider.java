@@ -1,4 +1,4 @@
-package org.wikipedia;
+package de.droidwiki;
 
 import java.net.URLEncoder;
 import java.util.Locale;
@@ -15,9 +15,10 @@ import android.database.MatrixCursor;
 import android.net.Uri;
 import android.provider.BaseColumns;
 import android.util.Log;
+import de.droidwiki.R;
 
 public class SearchSuggestionsProvider extends ContentProvider {
-	private static final String AUTHORITY = "org.wikipedia.searchsuggestions";
+	private static final String AUTHORITY = "de.droidwiki.searchsuggestions";
 	public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY);
 
 	@Override

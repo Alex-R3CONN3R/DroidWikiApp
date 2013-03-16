@@ -1,8 +1,9 @@
-package org.wikipedia;
+package de.droidwiki;
 
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
+import de.droidwiki.R;
 
 import org.apache.cordova.DroidGap;
 

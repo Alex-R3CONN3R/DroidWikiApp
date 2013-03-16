@@ -1,4 +1,4 @@
-package org.wikipedia;
+package de.droidwiki;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -6,6 +6,7 @@ import org.json.JSONObject;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import de.droidwiki.R;
 
 import org.apache.cordova.api.Plugin;
 import org.apache.cordova.api.PluginResult;
