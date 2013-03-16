@@ -51,7 +51,6 @@
 	<script type="text/javascript" charset="utf-8" src="js/app.js"></script>
 	<script type="text/javascript" charset="utf-8" src="js/app_history.js"></script>
 	<script type="text/javascript" charset="utf-8" src="js/search.js"></script>
-	<script type="text/javascript" charset="utf-8" src="js/geo.js"></script>
 	<script type="text/javascript" charset="utf-8" src="js/settings.js"></script>
 	<script type="text/javascript" charset="utf-8" src="js/langlinks.js"></script>
 	<script type="text/javascript" charset="utf-8" src="js/menu.js"></script>
@@ -81,15 +80,6 @@
 
 	<div id="templates">
 		<script type="text/html" id="settings-page-template">
-			<div class="item">
-				<label for="contentLanguageSelector"><msg key="settings-language-label"></msg></label>
-				<select id='contentLanguageSelector'>
-					{{#languages}}
-						<option value="{{code}}">{{name}} {{#localName}}({{localName}}){{/localName}}</option>
-					{{/languages}}
-				</select>
-			</div>
-
 			<div class="item">
 				<label for="themeSelector"><msg key="settings-theme-selector-label"></msg></label>
 				<select id="themeSelector">
@@ -344,8 +334,6 @@
 		<!-- Contains specific styles for the user's theme -->
 	</div>
 	<menu id="appMenu" type="context">
-		<command type="command" id="languageCmd" icon="optionLanguage.png" disabled action="read-in" />
-		<command type="command" id="nearbyCmd" icon="optionNearMe.png" action="near-me" />
 		<command type="command" id="sharePageCmd" action="share-page" icon="optionSharePage.png" />
 		<command type="command" id="savePageCmd" icon="optionAddBookmark.png" action="save-page" />
 		<command type="command" id="savedPagesCmd" icon="optionReadLater.png" action="view-saved-pages" />
